@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ExpenseMate
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/expensemate
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  flyway:
+    enabled: true
+    schemas: expensemate
+    locations: classpath:db/migration
