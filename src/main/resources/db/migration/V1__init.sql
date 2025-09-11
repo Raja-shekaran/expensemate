@@ -6,7 +6,17 @@ CREATE TABLE IF NOT EXISTS expensemate.users (
     id UUID PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL
+
+    -- For normal auth
+    password_hash VARCHAR(255),
+
+    -- For OAuth (Google, GitHub, etc.)
+    provider VARCHAR(50),
+    provider_id VARCHAR(255),
+
+    -- Audit
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- 3️⃣ Create categories table

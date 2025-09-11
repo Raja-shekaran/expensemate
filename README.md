@@ -16,9 +16,10 @@ This repository contains the **backend service**, built with **Spring Boot**, us
 
 ## 🏗️ Tech Stack
 - **Java 21 / Kotlin**
-- **Spring Boot 3**
+- **Spring Boot 3.5.5**
 - **Spring Data JPA**
-- **PostgreSQL**
+- **PostgreSQL 17.6**
+- **Flyway 11.7.2**
 - **Spring Security (JWT)**
 - **Gradle (Kotlin DSL, JAR packaging)**
 
@@ -93,15 +94,6 @@ Run unit and integration tests:
 ```bash
 ./gradlew test
 ```
-
----
-
-## 🛠️ Roadmap
-- ✅ Weekend 1: Domain models + Ports setup
-- ✅ Weekend 2: Persistence adapter (PostgreSQL + JPA)
-- ✅ Weekend 3: REST Controllers + DTO mapping
-- ✅ Weekend 4: JWT Authentication & Security
-- 🚀 Future: Reports, budgets, charts
 
 ---
 
