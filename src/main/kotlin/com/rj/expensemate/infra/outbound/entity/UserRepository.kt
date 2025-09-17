@@ -1,9 +1,31 @@
 package com.rj.expensemate.infra.outbound.entity
 
-import com.rj.expensemate.core.model.User
-import org.springframework.data.jpa.repository.JpaRepository
-import java.util.UUID
+import jakarta.persistence.*
+import java.util.*
 
-interface UserRepository : JpaRepository<User, UUID> {
-    fun findByEmail(email: String): User?
-}
+@Entity
+@Table(name = "users", schema = "expensemate")
+data class UserEntity(
+    @Id
+    val id: UUID = UUID.randomUUID(),
+
+    @Column(nullable = false)
+    var name: String,
+
+    @Column(nullable = false, unique = true)
+    var email: String,
+
+    @Column(name = "password_hash")
+    var passwordHash: String? = null,
+
+    var provider: String = "LOCAL",
+
+    @Column(name = "provider_id")
+    var providerId: String? = null,
+
+    @Column(name = "created_at")
+    var createdAt: Date = Date(),
+
+    @Column(name = "updated_at")
+    var updatedAt: Date = Date()
+)

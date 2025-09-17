@@ -1,6 +1,6 @@
 package com.rj.expensemate.infra.inbound.api
 
-import com.rj.expensemate.core.domain.AuthService
+import com.rj.expensemate.core.domain.service.AuthService
 import com.rj.expensemate.infra.inbound.api.model.request.LoginRequest
 import com.rj.expensemate.infra.inbound.api.model.request.SignupRequest
 import com.rj.expensemate.infra.inbound.api.model.response.AuthResponse

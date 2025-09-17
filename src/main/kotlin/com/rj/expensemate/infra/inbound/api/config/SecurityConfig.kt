@@ -21,7 +21,7 @@ class SecurityConfig(
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http.csrf { it.disable() }
             .authorizeHttpRequests {
-                it.requestMatchers("/api/auth/**").permitAll() // signup/login open
+                it.requestMatchers("/api/v1/auth/**").permitAll()
                     .anyRequest().authenticated()
             }
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
@@ -38,4 +38,3 @@ class SecurityConfig(
     fun authManager(config: AuthenticationConfiguration): AuthenticationManager =
         config.authenticationManager
 }
-

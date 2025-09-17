@@ -1,4 +1,5 @@
 package com.rj.expensemate.core.ports.out
 
-class TokenProviderPort {
+interface TokenProviderPort {
+    fun generateToken(email: String): String
 }
