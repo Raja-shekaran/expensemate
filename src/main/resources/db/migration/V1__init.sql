@@ -22,7 +22,9 @@ CREATE TABLE IF NOT EXISTS expensemate.users (
 -- 3️⃣ Create categories table
 CREATE TABLE IF NOT EXISTS expensemate.categories (
     id UUID PRIMARY KEY,
-    name VARCHAR(50) NOT NULL
+    user_id UUID NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES expensemate.users(id)
 );
 
 -- 4️⃣ Create transactions table
