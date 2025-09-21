@@ -3,6 +3,7 @@ package com.rj.expensemate.util
 import com.rj.expensemate.core.domain.model.Transaction
 import com.rj.expensemate.infra.inbound.api.model.response.TransactionResponse
 import com.rj.expensemate.infra.inbound.api.model.request.TransactionRequest
+import java.util.UUID
 
 object TransactionMapper {
 
@@ -17,9 +18,9 @@ object TransactionMapper {
             notes = transaction.notes
         )
 
-    fun fromRequest(request: TransactionRequest): Transaction =
+    fun fromRequest(request: TransactionRequest, userId: UUID): Transaction =
         Transaction(
-            userId = request.userId,
+            userId = userId,
             amount = request.amount,
             type = request.type,
             categoryId = request.categoryId,

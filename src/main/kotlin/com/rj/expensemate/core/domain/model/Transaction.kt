@@ -12,6 +12,3 @@ data class Transaction(
     val date: Date,
     val notes: String?
 )
-
-
-

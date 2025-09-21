@@ -28,9 +28,10 @@ class AuthService(
             passwordHash = passwordEncoder.encode(request.password),
             provider = "LOCAL"
         )
-        userRepository.save(user)
 
-        val token = tokenProvider.generateToken(user.email)
+        val savedUser = userRepository.save(user)
+
+        val token = tokenProvider.generateToken(savedUser.id)
         return AuthResponse(token)
     }
 
@@ -42,7 +43,7 @@ class AuthService(
             throw IllegalArgumentException("Invalid email or password")
         }
 
-        val token = tokenProvider.generateToken(user.email)
+        val token = tokenProvider.generateToken(user.id)
         return AuthResponse(token)
     }
 }

@@ -4,7 +4,6 @@ import com.rj.expensemate.util.Enums.TransactionType
 import java.util.*
 
 data class TransactionRequest(
-    val userId: UUID,
     val amount: Double,
     val type: TransactionType,
     val categoryId: UUID?,
