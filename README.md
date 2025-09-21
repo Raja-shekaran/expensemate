@@ -51,7 +51,7 @@ expensemate-backend/
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/expensemate-backend.git
+git clone https://github.com/Raja-shekaran/expensemate-backend.git
 cd expensemate-backend
 ```
 
@@ -98,6 +98,6 @@ Run unit and integration tests:
 ---
 
 ## 👨‍💻 Author
-**Your Name**
+**Rajashekaran S**
 - GitHub: [@Raja-shekaran](https://github.com/Raja-shekaran)
 - LinkedIn: [Rajashekaran S](https://www.linkedin.com/in/rajashekaran-s-b85754307/)
