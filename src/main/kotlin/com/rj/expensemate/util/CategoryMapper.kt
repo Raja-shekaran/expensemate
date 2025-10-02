@@ -6,17 +6,20 @@ import com.rj.expensemate.infra.inbound.api.model.response.CategoryResponse
 import java.util.*
 
 object CategoryMapper {
-    fun fromRequest(request: CategoryRequest): Category =
-        Category(
+
+    fun fromRequest(request: CategoryRequest, userId: UUID): Category {
+        return Category(
             id = UUID.randomUUID(),
-            userId = request.userId,
+            userId = userId,
             name = request.name
         )
+    }
 
-    fun toResponse(category: Category): CategoryResponse =
-        CategoryResponse(
+    fun toResponse(category: Category): CategoryResponse {
+        return CategoryResponse(
             id = category.id,
             userId = category.userId,
             name = category.name
         )
+    }
 }

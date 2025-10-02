@@ -4,6 +4,7 @@ import com.rj.expensemate.core.ports.`in`.CategoryUseCase
 import com.rj.expensemate.infra.inbound.api.model.request.CategoryRequest
 import com.rj.expensemate.infra.inbound.api.model.response.CategoryResponse
 import com.rj.expensemate.util.CategoryMapper
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.*
 import java.util.*
 
@@ -12,14 +13,19 @@ import java.util.*
 class CategoryController(
     private val categoryUseCase: CategoryUseCase
 ) {
+
     @PostMapping
     fun createCategory(@RequestBody request: CategoryRequest): CategoryResponse {
-        val category = categoryUseCase.createCategory(CategoryMapper.fromRequest(request))
+        val userId = SecurityContextHolder.getContext().authentication.principal as UUID
+        val category = categoryUseCase.createCategory(
+            CategoryMapper.fromRequest(request, userId)
+        )
         return CategoryMapper.toResponse(category)
     }
 
-    @GetMapping("/{userId}")
-    fun getCategories(@PathVariable userId: UUID): List<CategoryResponse> {
+    @GetMapping
+    fun getCategories(): List<CategoryResponse> {
+        val userId = SecurityContextHolder.getContext().authentication.principal as UUID
         return categoryUseCase.getCategories(userId).map { CategoryMapper.toResponse(it) }
     }
 
@@ -28,3 +34,4 @@ class CategoryController(
         categoryUseCase.deleteCategory(categoryId)
     }
 }
+
