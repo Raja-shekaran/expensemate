@@ -3,9 +3,9 @@ spring:
     name: ExpenseMate
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/expensemate
+    url: jdbc:postgresql://db.yzymfqpwuarpzzotrths.supabase.co:5432/postgres
     username: postgres
-    password: postgres
+    password: Expensemate@2025
     driver-class-name: org.postgresql.Driver
 
   jpa:
